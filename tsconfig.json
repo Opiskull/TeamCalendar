@@ -1,11 +1,11 @@
 {
-  "version": "1.7.3",
+  "version": "1.8.0",
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": "src/",
     "sourceMap": true,
     "target": "es5",
-    "module": "amd",
+    "module": "commonjs",
     "declaration": false,
     "noImplicitAny": false,
     "noResolve": true,
@@ -17,8 +17,8 @@
   "filesGlob": [
     "./src/**/*.ts",
     "./test/**/*.ts",
-    "./typings/browser.d.ts",
-    "./custom_typings/**/*.d.ts",
+    "./typings/index.d.ts",
+    "./typings/**/*.d.ts",
     "./jspm_packages/**/*.d.ts"
   ],
   "exclude": [
