@@ -1,0 +1,75 @@
+[
+    {
+        "title": "Hugos Calendar",
+        "id": 1,
+        "users": [
+            {
+                "name": "hugo"
+            },
+            {
+                "name": "mikoto"
+            }
+        ]
+    },
+    {
+        "title": "Mikotos Calendar",
+        "id": 2,
+        "users": [
+            {
+                "name": "mikoto"
+            }
+        ]
+    },
+    {
+        "title": "Franks Calendar",
+        "id": 3,
+        "users": [
+            {
+                "name": "hugo"
+            },
+            {
+                "name": "frank"
+            }
+        ]
+    },
+    {
+        "title": "Karls Calendar",
+        "id": 4,
+        "users": [
+            {
+                "name": "karl"
+            },
+            {
+                "name": "mikoto"
+            },
+            {
+                "name": "frank"
+            },
+            {
+                "name": "hugo"
+            }
+        ],
+        "events": [
+            {
+                "name": "Party",
+                "from": "2012-04-23T00:00:00.000Z",
+                "to": "2012-04-23T00:00:00.000Z"
+            },
+            {
+                "name": "Work",
+                "from": "2012-04-14T00:00:00.000Z",
+                "to": "2012-04-15T00:00:00.000Z"
+            },
+            {
+                "name": "Sleep",
+                "from": "2012-04-15T00:00:00.000Z",
+                "to": "2012-04-23T00:00:00.000Z"
+            },
+            {
+                "name": "Holiday",
+                "from": "2012-04-25T00:00:00.000Z",
+                "to": "2012-04-30T00:00:00.000Z"
+            }
+        ]
+    }
+]

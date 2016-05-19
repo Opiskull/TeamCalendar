@@ -1,0 +1,16 @@
+<template>
+    <require from="./date-format"></require>
+    
+    <h2>${calendar.title}</h2>
+    <h3>${calendar.id}</h3>
+    <h4>Users with access</h4>
+    <li repeat.for="user of calendar.users">
+        ${user.name}
+    </li> 
+    <h4>Events</h4>
+    <ul repeat.for="event of calendar.events">
+        name: ${event.name}    
+        <li>from: ${event.from | dateFormat}</li>
+        <li>to: ${event.to | dateFormat}</li>
+    </ul>
+</template>
