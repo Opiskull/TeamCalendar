@@ -1,0 +1,7 @@
+<template>
+    <require from="../../date-format"></require>
+    <h2>Starting Month: ${currentDate | dateFormat}</h2>
+   <li repeat.for="day of getWeekDays()">
+       <ul>${day}</ul>
+   </li>
+</template>

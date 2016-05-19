@@ -1,5 +1,6 @@
 <template>
     <require from="./date-format"></require>
+    <require from="./calendars/calendar/month"></require>
     
     <h2>${calendar.title}</h2>
     <h3>${calendar.id}</h3>
@@ -13,4 +14,7 @@
         <li>from: ${event.from | dateFormat}</li>
         <li>to: ${event.to | dateFormat}</li>
     </ul>
+    <month current-date.bind="previousMonth"></month>
+    <month current-date.bind="currentDate"></month>   
+    <month current-date.bind="nextMonth"></month>   
 </template>
