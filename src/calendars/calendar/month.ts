@@ -1,31 +1,32 @@
-import {bindable} from 'aurelia-framework';
+import {bindable, inject} from 'aurelia-framework';
+import {Calendar} from '../models/calendar';
+import moment = require("moment")
+import {Event} from '../models/event';
+import {EventsService} from '../services/events';
 
+
+@inject(EventsService)
 export class Month {
-    @bindable public currentDate: Date = new Date()
+    @bindable public currentDate: Date;
+    @bindable public calendars: Calendar[];
     
-    private weekDays: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-    public firstDay() : Date {
-        return new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(), 1);
-    }
-
-    public lastDay() : Date {
-        return new Date(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, 0);
+    private daysInMonth: Date[] = []
+    
+    constructor(private eventsService: EventsService){
     }
     
-    public daysInMonth() : number {
-        // +1 because getDate() is zero based
-        return new Date(this.currentDate.getFullYear(), this.currentDate.getMonth(),0).getDate() +1;
-    }
+    private isWeekend(day: Date) : boolean {
+        var weekDay = moment(day).isoWeekday()
+        return weekDay == 7 || weekDay == 6 
+    }   
     
-    public getWeekDays(): string[]{
-        var firstWeekDay = this.firstDay().getDay();        
-        var days = [];
-        var daysInMonth = this.daysInMonth();
-        for (var day = 0; day < daysInMonth; day++) {
-            var weekDay = (firstWeekDay + day) % this.weekDays.length;
-            days.push(this.weekDays[weekDay]);            
+    attached(){        
+        var daysInMonth = [];        
+        for(var day = 1; day <= moment(this.currentDate).endOf('month').date(); day++){
+            var date = moment(this.currentDate).date(day)
+            daysInMonth.push(date)
         }
-        return days;
+        this.daysInMonth = daysInMonth;
     }
+    
 }

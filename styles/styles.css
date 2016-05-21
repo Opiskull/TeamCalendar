@@ -173,3 +173,24 @@ div.au-stagger {
     opacity: 1;
   }
 }
+
+
+.days-header{
+  width: 25px;
+}
+
+.event-type.holiday{
+  content: 'h'
+}
+
+.odd{
+  background-color: lightgrey
+}
+
+.weekend{
+  background-color: lavender
+}
+
+.calendar-row td {
+  height: 50px;
+}

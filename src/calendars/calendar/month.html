@@ -1,7 +1,23 @@
 <template>
     <require from="../../date-format"></require>
-    <h2>Starting Month: ${currentDate | dateFormat}</h2>
-   <li repeat.for="day of getWeekDays()">
-       <ul>${day}</ul>
-   </li>
+    <require from="./eventDay"></require>
+    <h2>Month: ${currentDate | dateFormat:'YYYYMM'}</h2>   
+   <table class="table-bordered">
+       <tbody>       
+           <tr>
+               <td>Calendar</td>
+               <td repeat.for="day of daysInMonth" class="days-header ${ isWeekend(day) ? 'weekend' : ''}">                   
+                   ${day | dateFormat:'D'}
+               </td>
+           </tr>
+           <tr repeat.for="calendar of calendars" class="calendar-row ${ $odd ? 'odd' : ''}">
+               <td>${calendar.title}</td>
+               <td repeat.for="day of daysInMonth" class="${ isWeekend(day) ? 'weekend' : ''}">
+                   <template repeat.for="event of eventsService.getEventsOnDay(calendar,day)">
+                       <event-day event.bind="event"></event-day>
+                   </template>
+               </td>
+           </tr>
+       </tbody>
+    </table>
 </template>

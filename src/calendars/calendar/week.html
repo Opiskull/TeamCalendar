@@ -1,15 +1,23 @@
 <template>
-    <table>
+    <require from="../../date-format"></require>
+    <require from="./eventDay"></require>
+    <h2>WeekNumber: ${weekNumber}</h2>   
+    <table  class="table-bordered">
         <tbody>
             <tr>
-                <td>Monday</td>
-                <td>Tuesday</td>
-                <td>Wednesday</td>
-                <td>Thursday</td>
-                <td>Friday</td>
-                <td>Saturday</td>
-                <td>Sunday</td>
-            </tr>      
+                <td>Calendar</td>
+                <td repeat.for="weekDay of daysOfWeek">
+                    ${weekDay | dateFormat:'D'}
+                </td>
+            </tr>            
+            <tr repeat.for="calendar of calendars" class="calendar-row ${ $odd ? 'odd' : ''}">
+               <td>${calendar.title}</td>
+               <td repeat.for="day of daysOfWeek" class="${ isWeekend(day) ? 'weekend' : ''}">
+                   <template repeat.for="evt of eventsService.getEventsOnDay(calendar,day)">
+                       <event-day event.bind="evt"></event-day>
+                   </template>
+               </td>
+           </tr>   
         </tbody>
     </table>
 </template>

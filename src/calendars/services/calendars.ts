@@ -1,5 +1,4 @@
-import {Calendar} from "./calendar"
-import {User} from "./user"
+import {Calendar} from "../models/calendar"
 import {HttpClient} from 'aurelia-fetch-client';
 import {inject} from 'aurelia-framework';
 
