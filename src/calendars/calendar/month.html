@@ -13,7 +13,7 @@
            <tr repeat.for="calendar of calendars" class="calendar-row ${ $odd ? 'odd' : ''}">
                <td>${calendar.title}</td>
                <td repeat.for="day of daysInMonth" class="${ isWeekend(day) ? 'weekend' : ''}">
-                   <template repeat.for="event of eventsService.findEventsOnDay(calendar,day)">
+                   <template repeat.for="event of eventsService.findEventsFromCalendarOnDay(calendar.id,day)">
                        <event-day event.bind="event"></event-day>
                    </template>
                </td>

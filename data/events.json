@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Home",
+        "fromDay": "2016-05-23T00:00:00.000Z",
+        "toDay": "2016-05-24T00:00:00.000Z",
+        "type": 3,
+        "calendarId": 3
+    },
+    {
+        "name": "Sick",
+        "fromDay": "2016-05-14T00:00:00.000Z",
+        "toDay": "2016-05-16T00:00:00.000Z",
+        "type": 4,
+        "calendarId": 2
+    },
+    {
+        "name": "Training",
+        "fromDay": "2016-05-16T00:00:00.000Z",
+        "toDay": "2016-05-23T00:00:00.000Z",
+        "type": 2,
+        "calendarId": 1
+    },
+    {
+        "name": "Holiday",
+        "fromDay": "2016-05-25T00:00:00.000Z",
+        "toDay": "2016-05-30T00:00:00.000Z",
+        "type": 0,
+        "calendarId": 4
+    }
+]

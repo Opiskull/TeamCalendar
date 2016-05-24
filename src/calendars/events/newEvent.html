@@ -1,0 +1,12 @@
+<template>
+    <input type="text" value.bind="event.name" placeholder="EventName">
+    <input type="text" value.bind="event.description" placeholder="Description">
+    <input type="number" value.bind="event.calendarId" placeholder="CalendarId">
+    <input type="date" value.bind="event.fromDay" placeholder="FromDay">
+    <input type="date" value.bind="event.toDay" placeholder="toDay">
+    <select value.bind="event.type">
+        <option value.bind="$index" repeat.for="event of eventTypes">${event}</option>
+    </select>
+    
+    <button click.trigger="save()">Create Event</button>
+</template>

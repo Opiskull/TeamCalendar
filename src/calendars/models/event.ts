@@ -9,12 +9,14 @@ export enum EventType{
 }
 
 export class Event{
-    constructor(name: string){
-        
+    constructor(){
+        this.toDay = new Date()
+        this.fromDay = new Date()
     }
     public description: string;
     public fromDay: Date;
     public toDay: Date;
     public type: EventType;
     public createdBy: User;
+    public calendarId: number;
 }
