@@ -1,3 +1,5 @@
+import {User} from "./user"
+
 export enum EventType{
     Holiday,
     CompTime,
@@ -14,4 +16,5 @@ export class Event{
     public fromDay: Date;
     public toDay: Date;
     public type: EventType;
+    public createdBy: User;
 }

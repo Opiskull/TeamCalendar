@@ -8,17 +8,16 @@ import 'fetch'
 export class CalendarService {
     public items: Calendar[] = []
 
-    constructor(httpClient: HttpClient) {
-        httpClient.fetch('/data/calendars.json')
-            .then(response => response.json())
-            .then(data => this.items = data);
+    constructor(private httpClient: HttpClient){        
     }
 
-    public getById(id: number) {
+    public getById(id: number) : Calendar {
         return this.items.find((val) => val.id == id);
     }
-
-    public getAll() {
-        return this.items;
+    
+    public getAll(): Promise<Calendar>{
+        return this.httpClient.fetch('/data/calendars.json')
+            .then(response => response.json())
+            .then(data => this.items = data);
     }
 }

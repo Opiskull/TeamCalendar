@@ -8,10 +8,9 @@ export class List {
     private currentDay: Date = new Date()
 
     constructor(private calendarService: CalendarService) {
-        this.calendars = this.calendarService.getAll();
     }
 
     activate() {
-        
+        this.calendars = this.calendarService.items;
     }
 }
