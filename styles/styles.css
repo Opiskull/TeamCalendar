@@ -174,14 +174,26 @@ div.au-stagger {
   }
 }
 
-
-.days-header{
-  width: 25px;
-}
-
 .event-type.holiday{
-  content: 'h'
+  color: red
 }
+
+.event-type.comptime{
+  color: blue
+}
+
+.event-type.training{
+  color: black
+}
+
+.event-type.home{
+  color: darkorange
+}
+
+.event-type.sick{
+  color: yellow
+}
+
 
 .odd{
   background-color: lightgrey
@@ -191,6 +203,14 @@ div.au-stagger {
   background-color: lavender
 }
 
-.calendar-row td {
-  height: 50px;
+table { display: block;}
+
+table, tbody, thead {
+  overflow: auto;
 }
+.small-table td, .small-table th {
+  padding: 5px
+}
+
+
+
