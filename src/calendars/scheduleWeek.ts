@@ -1,15 +1,16 @@
 import {Calendar} from "./models/calendar"
 import {CalendarService} from "./services/calendars"
-import {inject} from 'aurelia-framework'
+import {autoinject} from 'aurelia-framework'
+import {Router} from 'aurelia-router'
 
 import moment = require('moment')
 
-@inject(CalendarService)
+@autoinject()
 export class ScheduleWeek {
     private calendars: Calendar[] = []
     private currentDay: Date = new Date()
 
-    constructor(private calendarService: CalendarService) {
+    constructor(private calendarService: CalendarService, private router: Router) {
     }
 
     activate(routeParameters: any) {
@@ -17,7 +18,7 @@ export class ScheduleWeek {
         if (routeParameters.week) {            
             this.currentDay = moment(routeParameters.week, "YYYYWW").toDate()
         } else {
-            this.currentDay = new Date()
+            this.router.navigateToRoute('scheduleWeek', {month : moment(new Date()).format("YYYYWW") })
         }
     }
 }

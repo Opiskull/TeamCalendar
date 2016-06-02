@@ -13,6 +13,9 @@ export class Month {
     @bindable({ 
         changeHandler: 'inputChanged' 
     }) public calendars: Calendar[];
+    
+    
+    private events: Event[]
 
     private daysInMonth: Date[] = []
 
