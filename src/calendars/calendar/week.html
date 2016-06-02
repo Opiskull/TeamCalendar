@@ -2,22 +2,22 @@
     <require from="../../date-format"></require>
     <require from="./eventDay"></require>
     <h2>WeekNumber: ${weekNumber}</h2>   
-    <table  class="table-bordered">
-        <tbody>
-            <tr>
-                <td>Calendar</td>
-                <td repeat.for="weekDay of daysOfWeek">
+    <table class="small-table">
+        <thead>
+                        <tr>
+                <th>Calendar</th>
+                <th repeat.for="weekDay of daysOfWeek" class="${ isWeekend(weekDay) ? 'weekend' : ''}">
                     ${weekDay | dateFormat:'D'}
-                </td>
-            </tr>            
-            <tr repeat.for="calendar of calendars" class="calendar-row ${ $odd ? 'odd' : ''}">
+                </th>
+            </tr>
+        </thead>
+        <tbody>         
+            <tr repeat.for="calendar of calendars">
                <td>${calendar.title}</td>
                <td repeat.for="day of daysOfWeek" class="${ isWeekend(day) ? 'weekend' : ''}">
-                   <template repeat.for="evt of eventsService.findEventsFromCalendarOnDay(calendar.id,day)">
-                       <event-day event.bind="evt"></event-day>
-                   </template>
-</td>
-</tr>
-</tbody>
-</table>
+                   <event-day event.bind="evt" repeat.for="evt of eventsService.findEventsForCalendarOnDay(calendar.id,day)" />
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </template>

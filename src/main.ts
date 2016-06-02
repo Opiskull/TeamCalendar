@@ -1,4 +1,5 @@
-import 'bootstrap';
+import "../node_modules/picnic/releases/picnic.css!"
+import "../node_modules/picnic/releases/plugins.css!"
 import {Aurelia} from 'aurelia-framework';
 
 export function configure(aurelia: Aurelia) {
