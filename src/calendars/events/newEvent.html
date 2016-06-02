@@ -1,12 +1,25 @@
 <template>
-    <input type="text" value.bind="event.name" placeholder="EventName">
-    <input type="text" value.bind="event.description" placeholder="Description">
-    <input type="number" value.bind="event.calendarId" placeholder="CalendarId">
-    <input type="date" value.bind="event.fromDay" placeholder="FromDay">
-    <input type="date" value.bind="event.toDay" placeholder="toDay">
-    <select value.bind="event.type">
-        <option value.bind="$index" repeat.for="event of eventTypes">${event}</option>
-    </select>
-    
-    <button click.trigger="save()">Create Event</button>
+    <form class="pure-form pure-form-aligned">
+        <fieldset>
+            <legend>
+                Create a new Event below:
+            </legend>
+            <div>
+                <input class="stack" type="text" value.bind="event.name" placeholder="Name" id="name">
+                <input class="stack" type="text" value.bind="event.description" placeholder="Description" id="description">
+                <input class="stack" type="number" value.bind="event.calendarId & validate" placeholder="CalendarId" id="calendarId">
+            </div>
+            <div>
+                <label for="fromDay">From</label>
+                <input type="date" value.bind="event.fromDay" placeholder="FromDay" id="fromDay">
+                <label for="tillDay">Till</label>
+                <input type="date" value.bind="event.tillDay" placeholder="tillDay" id="tillDay">
+                <label for="type">Type</label>
+                <select value.bind="event.type" id="type">
+                    <option model.bind="$index" repeat.for="event of eventTypes">${event}</option>
+                </select>
+            </div>
+            <button click.trigger="save()">Create Event</button>
+        </fieldset>
+    </form>
 </template>
