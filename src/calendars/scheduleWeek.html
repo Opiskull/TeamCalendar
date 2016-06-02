@@ -1,4 +1,12 @@
 <template>
-    <require from="./calendar/week"></require>    
+    <require from="../date-format"></require>
+    <require from="./calendar/week"></require>  
+    <div class="row">    
+        <div>            
+            <h2><a route-href="route: scheduleWeek; params.bind: { week: previousWeek}"><</a> 
+            Week: ${currentDay | dateFormat:'YYYYWW'} 
+            <a route-href="route: scheduleWeek; params.bind: { week: nextWeek}">></a></h2>            
+        </div>
+    </div>  
     <week current-date.bind="currentDay" calendars.bind="calendars"></week>
 </template>

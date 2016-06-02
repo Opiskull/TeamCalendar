@@ -4,11 +4,9 @@
     <div class="row">    
         <div>            
             <h2><a route-href="route: scheduleMonth; params.bind: { month: previousMonth}"><</a> 
-            ${currentDay | dateFormat:'YYYYMM'} 
-            <a route-href="route: scheduleMonth; params.bind: { month: nextMonth}">></buatton></h2>            
+            Month: ${currentDay | dateFormat:'YYYYMM'} 
+            <a route-href="route: scheduleMonth; params.bind: { month: nextMonth}">></a></h2>            
         </div>
     </div>
-    
-    
     <month current-date.bind="currentDay" calendars.bind="calendars"></month>
 </template>
