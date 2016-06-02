@@ -21,24 +21,30 @@ export class EventsService {
             .then(data => this.events = data);
     }
 
-    public findEventsFromCalendarOnDay(calendarId: number, day: Date): Event[] {
+    public findEventsForCalendarOnDay(calendarId: number, day: Date): Event[] {
         return this.events.filter((evt) => {
             return evt.calendarId == calendarId && this.isEventOnDay(evt, day);
         });
     }
 
     private isEventOnDay(event: Event, day: Date): boolean {
-        return moment(day).isBetween(event.fromDay, event.toDay, 'day', "[)")
+        return moment(day).isBetween(event.fromDay, event.tillDay, 'day', "[)")
     }
 
     public hasDayAnEvent(day: Date): boolean {
         return this.events.some((event) => this.isEventOnDay(event, day));
     }
 
-    public addEvent(event: Event): Promise<Event> {
+    public createEvent(event: Event): Promise<Event> {
         return new Promise<Event>((resolve) => { 
             this.events.push(event); 
             resolve(event); 
         })
+    }
+    
+    public findEventsForCalendar(calendarId: number) : Event[]{
+        return this.events.filter((evt) => {
+            return evt.calendarId == calendarId;
+        });
     }
 }
