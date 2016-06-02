@@ -6,42 +6,51 @@ export class EventDay {
         changeHandler: 'eventChanged'
     })
     event: Event;
-    style: any;
+    class : string;
 
     constructor() {
 
     }
 
     private eventChanged() {
-        this.style = this.calcStyle();
+        this.class = this.getClasses();
     }
 
-    private calcStyle(): any {
+    private getClasses(): string {
         if (this.event.type != undefined) {
             var type = this.event.type;
             switch (type) {
                 case EventType.Holiday:
-                    return {
-                        color: 'green',
-                    }
+                    return 'holiday'
                 case EventType.CompTime:
-                    return {
-                        color: 'blue',
-                    }
+                    return 'comptime'
                 case EventType.Training:
-                    return {
-                        color: 'red',
-                    }
+                    return 'training'
                 case EventType.Home:
-                    return {
-                        color: 'orange',
-                    }
+                    return 'home'
                 case EventType.Sick:
-                    return {
-                        color: 'black',
-                    }
+                    return 'sick'
             }
         }
-        return {}
+        return ''
+    }
+    
+    private getShortName(){
+        if (this.event.type != undefined) {
+            var type = this.event.type;
+            switch (type) {
+                case EventType.Holiday:
+                    return 'h'
+                case EventType.CompTime:
+                    return 'c'
+                case EventType.Training:
+                    return 't'
+                case EventType.Home:
+                    return 'h'
+                case EventType.Sick:
+                    return 's'
+            }
+        }
+        return ''
     }
 }
