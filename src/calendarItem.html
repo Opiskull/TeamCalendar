@@ -8,9 +8,9 @@
         ${user.name}
     </li> 
     <h4>Events</h4>
-    <ul repeat.for="event of calendar.events">
+    <ul repeat.for="event of events">
         name: ${event.name}    
-        <li>from: ${event.from | dateFormat}</li>
-        <li>to: ${event.to | dateFormat}</li>
+        <li>from: ${event.fromDay | dateFormat}</li>
+        <li>till: ${event.tillDay | dateFormat}</li>
     </ul>  
 </template>
